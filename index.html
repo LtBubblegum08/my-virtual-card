@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finley Gambin Card</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card-container {
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 350px;
+      height: 200px;
+      border-radius: 20px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      cursor: pointer;
+      border: 3px solid white;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .card-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <div class="card" id="businessCard">
+      <div class="card-face card-front">
+        <img src="1.png" alt="Front">
+      </div>
+      <div class="card-face card-back">
+        <img src="2.png" alt="Back">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('businessCard');
+    card.addEventListener('click', () => {
+      card.classList.toggle('is-flipped');
+    });
+  </script>
+</body>
+</html>
